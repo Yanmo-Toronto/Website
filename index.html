@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yanmo - Arabic Books for Kids Toronto</title>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            teal: {
+              50: '#f0fdfa',
+              100: '#ccfbf1',
+              200: '#99f6e4',
+              300: '#5eead4',
+              400: '#2dd4bf',
+              500: '#14b8a6',
+              600: '#0d9488',
+              700: '#0f766e',
+              800: '#115e59',
+              900: '#134e4a',
+            },
+            amber: {
+              50: '#fffbeb',
+              100: '#fef3c7',
+              200: '#fde68a',
+              300: '#fcd34d',
+              400: '#fbbf24',
+              500: '#f59e0b',
+              600: '#d97706',
+              700: '#b45309',
+              800: '#92400e',
+              900: '#78350f',
+            },
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    
+    .font-arabic {
+      font-family: 'Amiri', serif;
+    }
+    
+    .bg-pattern-1 {
+      background-image: url('https://images.unsplash.com/photo-1606761568499-6d2451b23c66?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    
+    .bg-pattern-2 {
+      background-image: url('https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    
+    .bg-pattern-3 {
+      background-color: rgba(240, 253, 250, 0.8);
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%230f766e' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    
+    .bg-pattern-4 {
+      background-color: rgba(255, 251, 235, 0.8);
+      background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23f59e0b' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+    }
+    
+    .animate-fade-in {
+      animation: fadeIn 1s ease-in-out;
+    }
+    
+    .animate-slide-up {
+      animation: slideUp 0.8s ease-in-out;
+    }
+    
+    .animate-slide-in-right {
+      animation: slideInRight 0.8s ease-in-out;
+    }
+    
+    .animate-slide-in-left {
+      animation: slideInLeft 0.8s ease-in-out;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    @keyframes slideUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    
+    @keyframes slideInRight {
+      from { transform: translateX(20px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+    
+    @keyframes slideInLeft {
+      from { transform: translateX(-20px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+    
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    
+    .scroll-reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    [dir="rtl"] .ml-3 {
+      margin-left: 0;
+      margin-right: 0.75rem;
+    }
+    
+    [dir="rtl"] .mr-4 {
+      margin-right: 0;
+      margin-left: 1rem;
+    }
+    
+    [dir="rtl"] .space-x-6 > * + * {
+      margin-left: 0;
+      margin-right: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div id="app" class="min-h-screen">
+    <!-- Header -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 bg-white bg-opacity-95 shadow-sm transition-all duration-300" style="height: 90px;">
+      <div class="container mx-auto px-4 h-full flex items-center justify-between">
+        <div class="flex items-center">
+          <img id="logo" src="https://ci3.googleusercontent.com/mail-img-att/AGAZnRpmJ_Z3W2T4ktcp9ylM9oHILKqbzPwdWX7M2PXZAX7w07jM-TVa36t9oXi_asVwwVb5X16bpzCROrcFqS33ebpsQ7INXbzLGGccCFTAosc4QfzJ4MD1elQNoOBeRDuY-nC2T83IdV7jld0bwiohzuw3ucoH4ISr_Tz1zTbT67c9rwnZ5_3IDo8jtCFXp3XIM-Tx9LnUUm8TeKB8vD8xrlXrswGq7p6BNL27-Xb8e7Ef0cCFg-jG6t5Ww5n6fQ9frIgSS9HH5Ohy7vADe9iFt6cjVQsK69sN46QLivf1p34Yk0H2omIT3K3Tzv8iEbSTRYobsjNsxtZLgZcWi28L6fXoDCILYvBzaNbT1Dsio7w2eV41OxJojD0iEk03MPHyykgKxLslmBj2oqTYIX3bgZnlfoUfyIn0jgnSQVy1uS5BRLjDXy3KXuli4At_mtW_21kzr3sfxAP7nXwO86mdtOO56WR6Tw6UIISRdArkw9xvtfIKWV2fr7ApSIGZYqMa6FFsJGaA0VzUEyvoWHkrbty1kZO-nnyxsQspAM9PYozGWb7RXOPG3v05Vjz9cqki6lcX9wKVvxxr_Ahu1t-YGryDXvKaSAtBMTd6m3tsBQOjMRwAlgh_3mHv4uRrd0zfylN8H_7_3igVHB6EhLp-TUHuzoM9ewNMpZBvKhSvbb2Lc6Jlfe1g5DoPLVZFlouXszi0bhLtU_f46a1SSS9xF39IGxH_brOjjvMYm39TAsvWx1ZvR4NGsG151U7yKqRtaqnDdLVena726zhzCmevSUWZXwkPAeyKuj_D3l3h6euHEa4aAlqI37lTGjchjrauTarxH5gJice6GVIf0-Zttx_sgAHeD_jdqU67KaZumBXGjxBeQYcYNHSvKwVeGZaHJj46fv8l5eFcBeB86-fHT_9x5re5siC3Z5S-zePbfJA1_xuKUeCwjaM_g7PxYeRzVrVUjd8VLUTfgryS1xedc24pWNzKteBPRNyug-09BQdSXLC_9Es2HhTOkd196e5dxdzmxEGuEyPZ_cQbWhqOEWmLDEwQ=s0-l75-ft" alt="Yanmo" width="70" height="70" class="transition-all duration-300">
+          <span id="brand-name" class="ml-3 font-bold text-teal-700 transition-all duration-300 text-2xl">
+            Yanmo
+          </span>
+        </div>
+
+        <nav id="desktop-nav" class="hidden md:flex items-center space-x-6">
+          <button onclick="scrollToSection('home')" class="text-gray-700 hover:text-teal-600 transition-colors">
+            Home
+          </button>
+          <button onclick="scrollToSection('about')" class="text-gray-700 hover:text-teal-600 transition-colors">
+            About Us
+          </button>
+          <button onclick="scrollToSection('books')" class="text-gray-700 hover:text-teal-600 transition-colors">
+            Our Books
+          </button>
+          <button onclick="scrollToSection('events')" class="text-gray-700 hover:text-teal-600 transition-colors">
+            Events
+          </button>
+          <button onclick="scrollToSection('donate')" class="text-gray-700 hover:text-teal-600 transition-colors">
+            Donate
+          </button>
+          <button onclick="scrollToSection('contact')" class="text-gray-700 hover:text-teal-600 transition-colors">
+            Contact
+          </button>
+          <button onclick="toggleLanguage()" class="px-3 py-1 bg-amber-100 text-amber-800 rounded-md hover:bg-amber-200 transition-colors">
+            العربية
+          </button>
+        </nav>
+
+        <div id="mobile-nav-toggle" class="md:hidden flex items-center">
+          <button onclick="toggleLanguage()" class="px-2 py-1 bg-amber-100 text-amber-800 rounded-md hover:bg-amber-200 transition-colors text-sm mr-4">
+            العربية
+          </button>
+          <button onclick="toggleMobileMenu()" class="text-gray-700">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Mobile Menu (Hidden by default) -->
+    <div id="mobile-menu" class="fixed inset-0 bg-white z-50 hidden">
+      <div class="container mx-auto px-4 py-6">
+        <div class="flex justify-end">
+          <button onclick="toggleMobileMenu()" class="text-gray-700">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <div class="flex flex-col items-center mt-10 space-y-6">
+          <button onclick="scrollToSectionAndCloseMenu('home')" class="text-xl text-gray-700 hover:text-teal-600 transition-colors">
+            Home
+          </button>
+          <button onclick="scrollToSectionAndCloseMenu('about')" class="text-xl text-gray-700 hover:text-teal-600 transition-colors">
+            About Us
+          </button>
+          <button onclick="scrollToSectionAndCloseMenu('books')" class="text-xl text-gray-700 hover:text-teal-600 transition-colors">
+            Our Books
+          </button>
+          <button onclick="scrollToSectionAndCloseMenu('events')" class="text-xl text-gray-700 hover:text-teal-600 transition-colors">
+            Events
+          </button>
+          <button onclick="scrollToSectionAndCloseMenu('donate')" class="text-xl text-gray-700 hover:text-teal-600 transition-colors">
+            Donate
+          </button>
+          <button onclick="scrollToSectionAndCloseMenu('contact')" class="text-xl text-gray-700 hover:text-teal-600 transition-colors">
+            Contact
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-32 pb-20 bg-pattern-1 bg-gradient-to-b from-amber-50 to-white">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row items-center">
+          <div class="md:w-1/2 mb-10 md:mb-0 animate-fade-in">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-teal-800 leading-tight mb-4 animate-slide-up">
+              Bringing Arabic Culture to Toronto
+            </h1>
+            <p class="text-xl text-gray-600 mb-8 animate-slide-up" style="animation-delay: 0.2s;">
+              Through the magic of children's books
+            </p>
+            <button onclick="scrollToSection('books')" class="px-6 py-3 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors shadow-lg animate-slide-up" style="animation-delay: 0.4s;">
+              Explore Our Books
+            </button>
+          </div>
+          <div class="md:w-1/2 animate-fade-in" style="animation-delay: 0.3s;">
+            <div class="relative">
+              <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Children reading Arabic books" class="rounded-lg shadow-xl">
+            </div>
+          </div>
+        </div>
+        <div class="flex justify-center mt-16">
+          <button onclick="scrollToSection('about')" class="text-gray-500 hover:text-teal-600 transition-colors animate-bounce">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white bg-pattern-3">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl md:text-4xl font-bold text-center text-teal-800 mb-12 scroll-reveal">
+          About Us
+        </h2>
+        <div class="flex flex-col md:flex-row items-center">
+          <div class="md:w-1/2 mb-10 md:mb-0">
+            <div class="relative scroll-reveal">
+              <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Our mission" class="rounded-lg shadow-lg">
+            </div>
+          </div>
+          <div class="md:w-1/2 md:pl-12">
+            <p class="text-lg text-gray-700 mb-6 scroll-reveal">
+              At Yanmo, we are dedicated to bringing the rich Arabic culture and language to children in Toronto through engaging and educational books.
+            </p>
+            <p class="text-lg text-gray-700 mb-6 scroll-reveal" style="transition-delay: 0.2s;">
+              Our mission is to create a bridge between cultures, helping children connect with their heritage or discover a new one.
+            </p>
+            <p class="text-lg text-gray-700 scroll-reveal" style="transition-delay: 0.4s;">
+              Founded in 2020, we've been working with local communities, schools, and families to promote cultural understanding and appreciation.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Books Section -->
+    <section id="books" class="py-20 bg-amber-50 bg-pattern-4">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl md:text-4xl font-bold text-center text-teal-800 mb-4 scroll-reveal">
+          Our Books
+        </h2>
+        <p class="text-xl text-center text-gray-600 mb-12 scroll-reveal" style="transition-delay: 0.2s;">
+          Discover our collection of Arabic children's books
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden scroll-reveal" style="transition-delay: 0.1s;">
+            <div class="h-64 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1589998059171-988d887df646?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="The Magic Carpet" class="w-full h-full object-cover transition-transform duration-300 hover:scale-110">
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-teal-700 mb-2">The Magic Carpet</h3>
+              <p class="text-gray-600">A magical adventure through ancient Arabic cities</p>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden scroll-reveal" style="transition-delay: 0.2s;">
+            <div class="h-64 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1553729459-efe14ef6055d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Alphabet Adventures" class="w-full h-full object-cover transition-transform duration-300 hover:scale-110">
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-teal-700 mb-2">Alphabet Adventures</h3>
+              <p class="text-gray-600">Learn the Arabic alphabet through fun stories</p>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden scroll-reveal" style="transition-delay: 0.3s;">
+            <div class="h-64 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1519682577862-22b62b24e493?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Tales from Damascus" class="w-full h-full object-cover transition-transform duration-300 hover:scale-110">
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-teal-700 mb-2">Tales from Damascus</h3>
+              <p class="text-gray-600">Traditional stories from the heart of Syria</p>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-lg shadow-lg overflow-hidden scroll-reveal" style="transition-delay: 0.4s;">
+            <div class="h-64 overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1576872381149-7847515ce5d8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Counting Stars" class="w-full h-full object-cover transition-transform duration-300 hover:scale-110">
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-teal-700 mb-2">Counting Stars</h3>
+              <p class="text-gray-600">Count in Arabic with this beautifully illustrated book</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events" class="py-20 bg-teal-50 bg-pattern-3">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl md:text-4xl font-bold text-center text-teal-800 mb-4 scroll-reveal">
+          Upcoming Events
+        </h2>
+        <p class="text-xl text-center text-gray-600 mb-12 scroll-reveal" style="transition-delay: 0.2s;">
+          Join us for storytelling, workshops, and more
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="bg-white rounded-lg shadow-lg p-8 scroll-reveal" style="transition-delay: 0.1s;">
+            <h3 class="text-xl font-bold text-teal-700 mb-4">Storytelling Saturday</h3>
+            <p class="text-gray-600 mb-2">Every Saturday, 10:00 AM</p>
+            <p class="text-gray-600">Toronto Public Library, Main Branch</p>
+          </div>
+
+          <div class="bg-white rounded-lg shadow-lg p-8 scroll-reveal" style="transition-delay: 0.2s;">
+            <h3 class="text-xl font-bold text-teal-700 mb-4">Arabic for Beginners Workshop</h3>
+            <p class="text-gray-600 mb-2">First Sunday of each month, 2:00 PM</p>
+            <p class="text-gray-600">Cultural Center, Downtown Toronto</p>
+          </div>
+
+          <div class="bg-white rounded-lg shadow-lg p-8 scroll-reveal" style="transition-delay: 0.3s;">
+            <h3 class="text-xl font-bold text-teal-700 mb-4">Parent-Child Reading Circle</h3>
+            <p class="text-gray-600 mb-2">Wednesdays, 4:30 PM</p>
+            <p class="text-gray-600">Community Hub, East Toronto</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Donation Section -->
+    <section id="donate" class="py-20 bg-gradient-to-b from-white to-amber-50 bg-pattern-2">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl md:text-4xl font-bold text-center text-teal-800 mb-4 scroll-reveal">
+          Support Our Mission
+        </h2>
+        <p class="text-xl text-center text-gray-600 mb-12 max-w-3xl mx-auto scroll-reveal" style="transition-delay: 0.2s;">
+          Your donation helps us bring Arabic culture and literature to more children in Toronto. Every contribution makes a difference in our community.
+        </p>
+        
+        <div class="max-w-3xl mx-auto bg-white rounded-lg shadow-xl overflow-hidden scroll-reveal" style="transition-delay: 0.3s;">
+          <div class="md:flex">
+            <div class="md:w-1/2 bg-teal-700 text-white p-8">
+              <h3 class="text-2xl font-bold mb-4">Why Donate?</h3>
+              <ul class="space-y-3">
+                <li class="flex items-start">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-amber-300 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Fund new  stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Fund new book translations and publications</span>
+                </li>
+                <li class="flex items-start">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-amber-300 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Support free community events and workshops</span>
+                </li>
+                <li class="flex items-start">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-amber-300 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Provide books to underserved communities</span>
+                </li>
+                <li class="flex items-start">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-amber-300 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Create educational resources for schools</span>
+                </li>
+              </ul>
+            </div>
+            <div class="md:w-1/2 p-8">
+              <h3 class="text-2xl font-bold text-teal-700 mb-4">Make a Donation</h3>
+              <form class="space-y-4">
+                <div>
+                  <label for="name" class="block text-gray-700 font-medium mb-2">Name</label>
+                  <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500">
+                </div>
+                <div>
+                  <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                  <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500">
+                </div>
+                <div>
+                  <label for="amount" class="block text-gray-700 font-medium mb-2">Amount</label>
+                  <div class="relative">
+                    <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-500">$</span>
+                    <input type="number" id="amount" min="5" step="5" value="25" class="w-full pl-8 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500">
+                  </div>
+                </div>
+                <button type="submit" class="w-full px-6 py-3 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors shadow-lg">
+                  Donate Now
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl md:text-4xl font-bold text-center text-teal-800 mb-12 scroll-reveal">
+          What Parents Say
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="bg-amber-50 rounded-lg p-8 shadow-md scroll-reveal" style="transition-delay: 0.1s;">
+            <p class="text-gray-700 mb-6 italic">"These books have helped my children connect with their heritage in a way I never thought possible."</p>
+            <p class="text-teal-700 font-medium">Sarah M., Parent</p>
+          </div>
+
+          <div class="bg-amber-50 rounded-lg p-8 shadow-md scroll-reveal" style="transition-delay: 0.2s;">
+            <p class="text-gray-700 mb-6 italic">"The illustrations are beautiful and the stories are engaging. My kids ask for these books every night!"</p>
+            <p class="text-teal-700 font-medium">Ahmed K., Parent</p>
+          </div>
+
+          <div class="bg-amber-50 rounded-lg p-8 shadow-md scroll-reveal" style="transition-delay: 0.3s;">
+            <p class="text-gray-700 mb-6 italic">"As a non-Arabic speaking parent, these books have been a wonderful way to introduce my child to a new culture."</p>
+            <p class="text-teal-700 font-medium">Jessica T., Parent</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-teal-700 text-white">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 scroll-reveal">
+          Contact Us
+        </h2>
+        <p class="text-xl text-center text-teal-100 mb-12 scroll-reveal" style="transition-delay: 0.2s;">
+          Get in touch with our team
+        </p>
+        <div class="flex flex-col md:flex-row">
+          <div class="md:w-1/2 mb-10 md:mb-0">
+            <div class="bg-teal-800 rounded-lg p-8 scroll-reveal" style="transition-delay: 0.1s;">
+              <div class="flex items-center mb-6">
+                <svg xmlns="http://www.w3.org/2000/svg" class="text-amber-300 mr-4" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <p>123 Culture Street, Toronto, ON M5V 2K3</p>
+              </div>
+              <div class="flex items-center mb-6">
+                <svg xmlns="http://www.w3.org/2000/svg" class="text-amber-300 mr-4" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                <p>hello@yanmo.ca</p>
+              </div>
+              <div class="flex items-center mb-6">
+                <svg xmlns="http://www.w3.org/2000/svg" class="text-amber-300 mr-4" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+                <p>+1 (416) 555-0123</p>
+              </div>
+              <div class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="text-amber-300 mr-4" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                <p>Monday to Friday: 9:00 AM - 5:00 PM</p>
+              </div>
+            </div>
+          </div>
+          <div class="md:w-1/2 md:pl-8">
+            <form class="bg-white rounded-lg p-8 text-gray-700 scroll-reveal" style="transition-delay: 0.3s;">
+              <div class="mb-6">
+                <label for="contact-name" class="block text-gray-700 font-medium mb-2">
+                  Name
+                </label>
+                <input type="text" id="contact-name" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500">
+              </div>
+              <div class="mb-6">
+                <label for="contact-email" class="block text-gray-700 font-medium mb-2">
+                  Email
+                </label>
+                <input type="email" id="contact-email" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500">
+              </div>
+              <div class="mb-6">
+                <label for="message" class="block text-gray-700 font-medium mb-2">
+                  Message
+                </label>
+                <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"></textarea>
+              </div>
+              <button type="submit" class="w-full px-6 py-3 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors shadow-lg">
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-gray-800 text-gray-300">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="flex items-center mb-6 md:mb-0">
+            <img src="https://ci3.googleusercontent.com/mail-img-att/AGAZnRpmJ_Z3W2T4ktcp9ylM9oHILKqbzPwdWX7M2PXZAX7w07jM-TVa36t9oXi_asVwwVb5X16bpzCROrcFqS33ebpsQ7INXbzLGGccCFTAosc4QfzJ4MD1elQNoOBeRDuY-nC2T83IdV7jld0bwiohzuw3ucoH4ISr_Tz1zTbT67c9rwnZ5_3IDo8jtCFXp3XIM-Tx9LnUUm8TeKB8vD8xrlXrswGq7p6BNL27-Xb8e7Ef0cCFg-jG6t5Ww5n6fQ9frIgSS9HH5Ohy7vADe9iFt6cjVQsK69sN46QLivf1p34Yk0H2omIT3K3Tzv8iEbSTRYobsjNsxtZLgZcWi28L6fXoDCILYvBzaNbT1Dsio7w2eV41OxJojD0iEk03MPHyykgKxLslmBj2oqTYIX3bgZnlfoUfyIn0jgnSQVy1uS5BRLjDXy3KXuli4At_mtW_21kzr3sfxAP7nXwO86mdtOO56WR6Tw6UIISRdArkw9xvtfIKWV2fr7ApSIGZYqMa6FFsJGaA0VzUEyvoWHkrbty1kZO-nnyxsQspAM9PYozGWb7RXOPG3v05Vjz9cqki6lcX9wKVvxxr_Ahu1t-YGryDXvKaSAtBMTd6m3tsBQOjMRwAlgh_3mHv4uRrd0zfylN8H_7_3igVHB6EhLp-TUHuzoM9ewNMpZBvKhSvbb2Lc6Jlfe1g5DoPLVZFlouXszi0bhLtU_f46a1SSS9xF39IGxH_brOjjvMYm39TAsvWx1ZvR4NGsG151U7yKqRtaqnDdLVena726zhzCmevSUWZXwkPAeyKuj_D3l3h6euHEa4aAlqI37lTGjchjrauTarxH5gJice6GVIf0-Zttx_sgAHeD_jdqU67KaZumBXGjxBeQYcYNHSvKwVeGZaHJj46fv8l5eFcBeB86-fHT_9x5re5siC3Z5S-zePbfJA1_xuKUeCwjaM_g7PxYeRzVrVUjd8VLUTfgryS1xedc24pWNzKteBPRNyug-09BQdSXLC_9Es2HhTOkd196e5dxdzmxEGuEyPZ_cQbWhqOEWmLDEwQ=s0-l75-ft" alt="Yanmo" width="50" height="50">
+            <span class="ml-3 font-bold text-white">
+              Yanmo
+            </span>
+          </div>
+          <div class="flex space-x-6">
+            <a href="#" class="hover:text-white transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+              </svg>
+            </a>
+            <a href="#" class="hover:text-white transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-instagram">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <a href="#" class="hover:text-white transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter">
+                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="mt-8 pt-8 border-t border-gray-700 flex flex-col md:flex-row justify-between items-center">
+          <p>© 2023 Yanmo. All rights reserved.</p>
+          <div class="flex mt-4 md:mt-0">
+            <a href="#" class="mr-6 hover:text-white transition-colors">
+              Privacy Policy
+            </a>
+            <a href="#" class="hover:text-white transition-colors">
+              Terms of Service
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    // Variables
+    let language = "en";
+    let scrollY = 0;
+    const translations = {
+      en: {
+        nav: {
+          home: "Home",
+          about: "About Us",
+          books: "Our Books",
+          events: "Events",
+          donate: "Donate",
+          contact: "Contact",
+        },
+        hero: {
+          title: "Bringing Arabic Culture to Toronto",
+          subtitle: "Through the magic of children's books",
+          cta: "Explore Our Books",
+        },
+        about: {
+          title: "About Us",
+          p1: "At Yanmo, we are dedicated to bringing the rich Arabic culture and language to children in Toronto through engaging and educational books.",
+          p2: "Our mission is to create a bridge between cultures, helping children connect with their heritage or discover a new one.",
+          p3: "Founded in 2020, we've been working with local communities, schools, and families to promote cultural understanding and appreciation.",
+        },
+        books: {
+          title: "Our Books",
+          subtitle: "Discover our collection of Arabic children's books",
+        },
+        events: {
+          title: "Upcoming Events",
+          subtitle: "Join us for storytelling, workshops, and more",
+        },
+        donate: {
+          title: "Support Our Mission",
+          subtitle: "Your donation helps us bring Arabic culture and literature to more children in Toronto",
+          button: "Donate Now",
+        },
+        testimonials: {
+          title: "What Parents Say",
+        },
+        contact: {
+          title: "Contact Us",
+          subtitle: "Get in touch with our team",
+          button: "Send Message",
+        },
+        footer: {
+          copyright: "© 2023 Yanmo. All rights reserved.",
+          privacy: "Privacy Policy",
+          terms: "Terms of Service",
+        },
+      },
+      ar: {
+        nav: {
+          home: "الرئيسية",
+          about: "من نحن",
+          books: "كتبنا",
+          events: "الفعاليات",
+          donate: "تبرع",
+          contact: "اتصل بنا",
+        },
+        hero: {
+          title: "نقدم الثقافة العربية إلى تورونتو",
+          subtitle: "من خلال سحر كتب الأطفال",
+          cta: "استكشف كتبنا",
+        },
+        about: {
+          title: "من نحن",
+          p1: "نحن في يانمو مكرسون لتقديم الثقافة واللغة العربية الغنية للأطفال في تورونتو من خلال كتب جذابة وتعليمية.",
+          p2: "مهمتنا هي بناء جسر بين الثقافات، ومساعدة الأطفال على التواصل مع تراثهم أو اكتشاف تراث جديد.",
+          p3: "تأسسنا في عام 2020، وقد عملنا مع المجتمعات المحلية والمدارس والعائلات لتعزيز التفاهم والتقدير الثقافي.",
+        },
+        books: {
+          title: "كتبنا",
+          subtitle: "اكتشف مجموعتنا من كتب الأطفال العربية",
+        },
+        events: {
+          title: "الفعاليات القادمة",
+          subtitle: "انضم إلينا لرواية القصص وورش العمل والمزيد",
+        },
+        donate: {
+          title: "ادعم مهمتنا",
+          subtitle: "تبرعك يساعدنا على تقديم الثقافة والأدب العربي لمزيد من الأطفال في تورونتو",
+          button: "تبرع الآن",
+        },
+        testimonials: {
+          title: "ما يقوله الآباء",
+        },
+        contact: {
+          title: "اتصل بنا",
+          subtitle: "تواصل مع فريقنا",
+          button: "إرسال الرسالة",
+        },
+        footer: {
+          copyright: "© 2023 يانمو. جميع الحقوق محفوظة.",
+          privacy: "سياسة الخصوصية",
+          terms: "شروط الخدمة",
+        },
+      },
+    };
+
+    // Functions
+    function scrollToSection(id) {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+
+    function scrollToSectionAndCloseMenu(id) {
+      toggleMobileMenu();
+      setTimeout(() => {
+        scrollToSection(id);
+      }, 300);
+    }
+
+    function toggleMobileMenu() {
+      const mobileMenu = document.getElementById("mobile-menu");
+      if (mobileMenu.classList.contains("hidden")) {
+        mobileMenu.classList.remove("hidden");
+        document.body.style.overflow = "hidden";
+      } else {
+        mobileMenu.classList.add("hidden");
+        document.body.style.overflow = "";
+      }
+    }
+
+    function toggleLanguage() {
+      language = language === "en" ? "ar" : "en";
+      const app = document.getElementById("app");
+      
+      if (language === "ar") {
+        app.classList.add("font-arabic");
+        app.setAttribute("dir", "rtl");
+      } else {
+        app.classList.remove("font-arabic");
+        app.setAttribute("dir", "ltr");
+      }
+      
+      updateContent();
+    }
+
+    function updateContent() {
+      const t = translations[language];
+      
+      // Update navigation
+      document.querySelectorAll("#desktop-nav button:not(:last-child)").forEach((btn, index) => {
+        const keys = ["home", "about", "books", "events", "donate", "contact"];
+        btn.textContent = t.nav[keys[index]];
+      });
+      
+      document.querySelectorAll("#mobile-menu button").forEach((btn, index) => {
+        const keys = ["home", "about", "books", "events", "donate", "contact"];
+        btn.textContent = t.nav[keys[index]];
+      });
+      
+      // Update language toggle button
+      const langToggleButtons = document.querySelectorAll("button:last-child");
+      langToggleButtons.forEach(btn => {
+        btn.textContent = language === "en" ? "العربية" : "English";
+      });
+      
+      // Update brand name
+      document.getElementById("brand-name").textContent = "Yanmo";
+      
+      // This is a simplified version - in a real implementation, you would update all text content
+    }
+
+    // Scroll event listener
+    window.addEventListener("scroll", function() {
+      scrollY = window.scrollY;
+      const header = document.getElementById("header");
+      const logo = document.getElementById("logo");
+      const brandName = document.getElementById("brand-name");
+      
+      if (scrollY > 50) {
+        header.style.height = "70px";
+        logo.width = 50;
+        logo.height = 50;
+        brandName.classList.remove("text-2xl");
+        brandName.classList.add("text-xl");
+      } else {
+        header.style.height = "90px";
+        logo.width = 70;
+        logo.height = 70;
+        brandName.classList.remove("text-xl");
+        brandName.classList.add("text-2xl");
+      }
+      
+      // Reveal elements on scroll
+      const scrollRevealElements = document.querySelectorAll(".scroll-reveal");
+      scrollRevealElements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        
+        if (elementTop < windowHeight - 100) {
+          element.classList.add("active");
+        }
+      });
+    });
+
+    // Initialize
+    document.addEventListener("DOMContentLoaded", function() {
+      // Trigger scroll event to initialize header state
+      window.dispatchEvent(new Event("scroll"));
+    });
+  </script>
+</body>
+</html>
